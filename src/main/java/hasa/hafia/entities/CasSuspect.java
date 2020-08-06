@@ -19,12 +19,11 @@ public class CasSuspect extends Cas {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column
-	private String symptome;
 	public CasSuspect() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public CasSuspect(Long id, String symptome) {
 		super();
 		this.id = id;

@@ -22,8 +22,8 @@ import lombok.Setter;
 
 @Entity
 
-//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-//@DiscriminatorColumn(name="cas")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="cas")
 public class Cas {
 	
 	@Id
@@ -35,6 +35,8 @@ public class Cas {
 	private String prenom;
 	@Column
 	private String adresse;
+	@Column
+	protected String symptome;
 	public Cas() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -70,7 +72,13 @@ public class Cas {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	
-	
-	
+
+
+	public String getSymptome() {
+		return symptome;
+	}
+
+	public void setSymptome(String symptome) {
+		this.symptome = symptome;
+	}
 }

@@ -3,6 +3,8 @@ package hasa.hafia;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import hasa.hafia.dao.UtilisateurRepository;
+import hasa.hafia.entities.Utilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +22,7 @@ public class CoronaApplication implements CommandLineRunner {
 ;
 	@Autowired 
 	private CasRepository casdao;
+	@Autowired private UtilisateurRepository repository;
 	
 	
 	public static void main(String[] args){
@@ -28,12 +31,11 @@ public class CoronaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-	/*
-		Cas cas=new Cas() {			
-			
+		Cas cas=new Cas() {
+
 		};
 		CasConfirmer casconfirme =new CasConfirmer();
-		
+
 		casconfirme.setNom("bah");
 		casconfirme.setPrenom("diallo");
 		casconfirme.setAdresse("Dakar");
@@ -44,9 +46,9 @@ public class CoronaApplication implements CommandLineRunner {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		CasSuspect casSuspect =new CasSuspect();
-		
+
 		casSuspect.setNom("Safi");
 		casSuspect.setPrenom("diallo");
 		casSuspect.setSymptome("fiere");
@@ -56,7 +58,10 @@ public class CoronaApplication implements CommandLineRunner {
 			System.out.println("Un cas est confirmé");
 		}catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
+
+		Utilisateur safi = Utilisateur.builder().username("safi@gmail.com").password("safi").build();
+		repository.save(safi);
 	}		
 
 }
